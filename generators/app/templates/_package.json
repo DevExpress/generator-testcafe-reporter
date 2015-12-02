@@ -1,0 +1,36 @@
+{
+  "name": "testcafe-reporter-<%= reporterName %>",
+  "version": "1.0.0",
+  "description": "<%= reporterName %> TestCafe reporter plugin.",
+  "repository": "https://github.com/<%= githubUsername %>/testcafe-reporter-<%= reporterName %>",
+  "author": {
+    "name": "<%= author %>",
+    "email": "<%= email %>"<% if (website) { %>,
+    "url": "<%= website %>"<% } %>
+  },
+  "main": "lib/index",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "test": "gulp test"
+  },
+  "keywords": [
+    "testcafe",
+    "reporter",
+    "plugin"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "babel-eslint": "^4.0.10",
+    "del": "^1.2.0",
+    "gulp": "^3.9.0",
+    "gulp-babel": "^5.2.1",
+    "gulp-eslint": "^1.1.1",
+    "gulp-mocha": "^2.2.0",
+    "normalize-newline": "^1.0.2",
+    "publish-please": "^1.0.1",
+    "read-file-relative": "^1.2.0",
+    "testcafe": "0.0.7-alpha"
+  }
+}
