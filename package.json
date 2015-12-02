@@ -1,0 +1,36 @@
+{
+  "name": "generator-testcafe-reporter",
+  "version": "1.0.0",
+  "description": "Scaffold out a TestCafe reporter",
+  "homepage": "https://github.com/DevExpress/generator-testcafe-reporter",
+  "author": {
+    "name": "Developer Express Inc.",
+    "url": "testcafe.devexpress.com"
+  },
+  "files": [
+    "generators"
+  ],
+  "main": "generators/index.js",
+  "keywords": [
+    "yeoman-generator",
+    "testcafe",
+    "reporter",
+    "plugin",
+    "report"
+  ],
+  "dependencies": {
+    "yeoman-generator": "^0.21.1",
+    "chalk": "^1.0.0",
+    "yosay": "^1.0.2"
+  },
+  "repository": "https://github.com/DevExpress/generator-testcafe-reporter.git",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-eslint": "^1.1.1",
+    "gulp-mocha": "^2.2.0"
+  }
+}
