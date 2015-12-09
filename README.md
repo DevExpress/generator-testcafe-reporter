@@ -3,6 +3,8 @@
 
 [![Build Status](https://api.travis-ci.org/DevExpress/generator-testcafe-reporter.svg)](https://travis-ci.org/DevExpress/generator-testcafe-reporter)
 
+TestCafe can build test run reports in your own format and style. What you have to do is create a custom reporter plugin.
+This Yeoman generator scaffolds out such a plugin, so that you only need to write a few lines of code.
 
 ## Installation
 
@@ -19,6 +21,6 @@ Then generate your new project:
 yo generator-testcafe-reporter
 ```
 
-#Author
+## Author
 
 Developer Express Inc.([http://devexpress.com](http://devexpress.com))
