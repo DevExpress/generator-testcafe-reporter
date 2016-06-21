@@ -38,7 +38,9 @@ it('Should generate expected files', function () {
             'test/test.js',
             'test/data/report-with-colors.json',
             'test/data/report-without-colors',
-            'test/data/test-calls.js'
+            'test/utils/create-report.js',
+            'test/utils/reporter-test-calls.js',
+            'test/utils/test-callsite.js'
         ]);
 
         assert.noFileContent('src/index.js', 'createErrorDecorator');
