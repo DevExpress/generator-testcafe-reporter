@@ -35,6 +35,6 @@
     "publish-please": "^1.0.1",
     "publish-please": "^2.1.4",
     "read-file-relative": "^1.2.0",
-    "testcafe": "^0.0.21"
+    "testcafe": "^0.2.0-alpha"
   }
 }

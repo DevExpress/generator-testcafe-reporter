@@ -27,11 +27,11 @@ export default function () {
             throw new Error('Not implemented');
         },
 
-        reportTestDone (/* name, errs, durationMs, unstable, screenshotPath */) {
+        reportTestDone (/* name, testRunInfo */) {
             throw new Error('Not implemented');
         },
 
-        reportTaskDone (/* endTime, passed */) {
+        reportTaskDone (/* endTime, passed, warnings */) {
             throw new Error('Not implemented');
         }
     };
