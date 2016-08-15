@@ -10,7 +10,7 @@ This is the **<%= reporterName %>** reporter plugin for [TestCafe](http://devexp
 ## Install
 
 ```
-npm install -g testcafe-reporter-<%= reporterName %>
+npm install testcafe-reporter-<%= reporterName %>
 ```
 
 ## Usage
