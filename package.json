@@ -1,6 +1,6 @@
 {
   "name": "generator-testcafe-reporter",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "description": "Scaffold out a TestCafe reporter",
   "homepage": "https://github.com/DevExpress/generator-testcafe-reporter",
   "author": {
