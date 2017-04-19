@@ -1,4 +1,4 @@
-# generator-testcafe-reporter
+# generator-testcafe-reporter123
 *Scaffold out a TestCafe reporter*
 
 [![Build Status](https://api.travis-ci.org/DevExpress/generator-testcafe-reporter.svg)](https://travis-ci.org/DevExpress/generator-testcafe-reporter)
