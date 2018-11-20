@@ -19,7 +19,7 @@ module.exports = [
                 'Chrome 41.0.2227 / Mac OS X 10.10.1',
                 'Firefox 47 / Mac OS X 10.10.1'
             ],
-            6
+            7
         ]
     },
     {
