@@ -28,15 +28,15 @@
   "dependencies": {
     "normalize-url": "^1.4.0",
     "underscore.string": "^3.2.2",
-    "yeoman-generator": "^0.21.1"
+    "yeoman-generator": "^3.2.0"
   },
   "devDependencies": {
-    "gulp": "^3.9.0",
-    "gulp-eslint": "^1.1.1",
-    "gulp-mocha": "^2.2.0",
+    "gulp": "^4.0.0",
+    "gulp-eslint": "^5.0.0",
+    "gulp-mocha": "^6.0.0",
     "pify": "^2.3.0",
     "pinkie-promise": "^2.0.0",
-    "publish-please": "^2.1.4",
+    "publish-please": "^5.4.3",
     "yeoman-assert": "^2.1.0"
   }
 }
