@@ -1,5 +1,5 @@
 'use strict';
-var yeoman       = require('yeoman-generator');
+var Generator    = require('yeoman-generator');
 var slugify      = require('underscore.string').slugify;
 var normalizeUrl = require('normalize-url');
 
@@ -7,11 +7,8 @@ function filterProjectName (name) {
     return slugify(name.replace(/^testcafe(-|\s)reporter(-|\s)/i, ''));
 }
 
-module.exports = yeoman.generators.Base.extend({
-    prompting: function () {
-        var done = this.async();
-        var gen  = this;
-
+module.exports = class extends Generator {
+    prompting () {
         var prompts = [
             {
                 name:    'reporterName',
@@ -43,16 +40,14 @@ module.exports = yeoman.generators.Base.extend({
             }
         ];
 
-        this.prompt(prompts, function (props) {
-            gen.props = props;
+        return this
+            .prompt(prompts)
+            .then(props => {
+                this.props = props;
+            });
+    }
 
-            done();
-        });
-    },
-
-    writing: function () {
-        var gen = this;
-
+    writing () {
         var tmplProps = {
             author:         this.user.git.name(),
             email:          this.user.git.email(),
@@ -74,12 +69,12 @@ module.exports = yeoman.generators.Base.extend({
         this.fs.copyTpl(this.templatePath() + '/**/!(*.png)', this.destinationPath(), tmplProps);
         this.fs.copy(this.templatePath() + '/**/*.png', this.destinationPath());
 
-        Object.keys(unescaped).forEach(function (escaped) {
-            gen.fs.move(gen.destinationPath(escaped), gen.destinationPath(unescaped[escaped]));
+        Object.keys(unescaped).forEach(escaped => {
+            this.fs.move(this.destinationPath(escaped), this.destinationPath(unescaped[escaped]));
         });
-    },
+    }
 
-    install: function () {
+    install () {
         this.installDependencies({ bower: false });
     }
-});
+};

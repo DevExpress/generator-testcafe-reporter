@@ -16,7 +16,7 @@ function lint () {
         .pipe(eslint.failAfterError());
 }
 
-gulp.task('test', gulp.series([lint]), function () {
+function test () {
     return gulp
         .src('test/test.js')
         .pipe(mocha({
@@ -24,4 +24,7 @@ gulp.task('test', gulp.series([lint]), function () {
             reporter: 'spec',
             timeout:  typeof v8debug === 'undefined' ? 20000 : Infinity // NOTE: disable timeouts in debug
         }));
-});
+}
+
+exports.lint = lint;
+exports.test = gulp.series(lint, test);

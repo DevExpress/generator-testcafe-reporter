@@ -37,6 +37,7 @@
     "pify": "^2.3.0",
     "pinkie-promise": "^2.0.0",
     "publish-please": "^5.4.3",
-    "yeoman-assert": "^2.1.0"
+    "yeoman-assert": "^2.1.0",
+    "yeoman-test": "^1.9.1"
   }
 }
