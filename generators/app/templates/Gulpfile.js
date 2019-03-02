@@ -55,5 +55,5 @@ function preview () {
 exports.clean = clean;
 exports.lint = lint;
 exports.test = gulp.series(test);
-exports.build = gulp.series(build, clean, lint);
+exports.build = gulp.series(clean, build, lint);
 exports.preview = gulp.series(preview, build);
