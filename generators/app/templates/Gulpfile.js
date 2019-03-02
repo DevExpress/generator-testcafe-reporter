@@ -4,11 +4,11 @@ var babel   = require('gulp-babel');
 var mocha   = require('gulp-mocha');
 var del     = require('del');
 
-gulp.task('clean', function (cb) {
+function clean (cb) {
     del('lib', cb);
-});
+}
 
-gulp.task('lint', function () {
+function lint () {
     return gulp
         .src([
             'src/**/*.js',
@@ -18,26 +18,26 @@ gulp.task('lint', function () {
         .pipe(eslint())
         .pipe(eslint.format())
         .pipe(eslint.failAfterError());
-});
+};
 
-gulp.task('build', ['clean', 'lint'], function () {
+function build () {
     return gulp
-        .src('src/**/*.js')
-        .pipe(babel())
-        .pipe(gulp.dest('lib'));
-});
+    .src('src/**/*.js')
+    .pipe(babel())
+    .pipe(gulp.dest('lib'));
+}
 
-gulp.task('test', ['build'], function () {
+function test () {
     return gulp
-        .src('test/**.js')
-        .pipe(mocha({
-            ui:       'bdd',
-            reporter: 'spec',
-            timeout:  typeof v8debug === 'undefined' ? 2000 : Infinity // NOTE: disable timeouts in debug
-        }));
-});
+    .src('test/test.js')
+    .pipe(mocha({
+        ui:       'bdd',
+        reporter: 'spec',
+        timeout:  typeof v8debug === 'undefined' ? 20000 : Infinity // NOTE: disable timeouts in debug
+    }));
+}
 
-gulp.task('preview', ['build'], function () {
+function preview () {
     var buildReporterPlugin = require('testcafe').embeddingUtils.buildReporterPlugin;
     var pluginFactory       = require('./lib');
     var reporterTestCalls   = require('./test/utils/reporter-test-calls');
@@ -50,4 +50,10 @@ gulp.task('preview', ['build'], function () {
     });
 
     process.exit(0);
-});
+}
+
+exports.clean = clean;
+exports.lint = lint;
+exports.test = gulp.series(test);
+exports.build = gulp.series(build, clean, lint);
+exports.preview = gulp.series(preview, build);
