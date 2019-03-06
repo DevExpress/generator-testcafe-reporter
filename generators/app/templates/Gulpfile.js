@@ -23,9 +23,7 @@ function lint () {
 function build () {
     return gulp
         .src('src/**/*.js')
-        .pipe(babel({
-            presets: ['@babel/env']
-        }))
+        .pipe(babel())
         .pipe(gulp.dest('lib'));
 }
 

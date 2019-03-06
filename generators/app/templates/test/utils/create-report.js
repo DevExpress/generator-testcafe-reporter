@@ -1,5 +1,5 @@
 var buildReporterPlugin = require('testcafe').embeddingUtils.buildReporterPlugin;
-var pluginFactory       = require('../../lib').default;
+var pluginFactory       = require('../../lib');
 var reporterTestCalls   = require('./reporter-test-calls');
 
 module.exports = function createReport (withColors) {
