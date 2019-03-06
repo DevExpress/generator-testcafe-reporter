@@ -1,4 +1,4 @@
-export default function () {
+module.exports = function () {
     return {
         noColors: true,
         <% if (errorDecorator) { %>
