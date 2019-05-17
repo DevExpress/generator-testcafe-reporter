@@ -27,6 +27,10 @@ module.exports = function () {
             throw new Error('Not implemented');
         },
 
+        reportTestStart (/* name, testMeta */) {
+            throw new Error('Not implemented');
+        },
+
         reportTestDone (/* name, testRunInfo */) {
             throw new Error('Not implemented');
         },
