@@ -55,7 +55,7 @@ module.exports = [
                             userAgent:      'Chrome 41.0.2227 / Mac OS X 10.10.1',
                             screenshotPath: '/screenshots/1445437598847/errors',
                             callsite:       testCallsite,
-                            testRunState:   'inTest'
+                            testRunPhase:   'inTest'
                         }
                     },
                     {
@@ -64,7 +64,7 @@ module.exports = [
                         metaInfo: {
                             userAgent:    'Firefox 47 / Mac OS X 10.10.1',
                             callsite:     testCallsite,
-                            testRunState: 'inTest'
+                            testRunPhase: 'inTest'
                         }
                     }
                 ]),
@@ -150,7 +150,7 @@ module.exports = [
                         metaInfo: {
                             userAgent:    'Firefox 47 / Mac OS X 10.10.1',
                             callsite:     testCallsite,
-                            testRunState: 'inBeforeEach'
+                            testRunPhase: 'inFixtureBeforeEachHook'
                         }
                     }
                 ]),
@@ -168,11 +168,13 @@ module.exports = [
             4,
             [
                 'Was unable to take a screenshot due to an error.\n\nReferenceError: someVar is not defined',
-                'Was unable to take a screenshot due to an error.\n\nReferenceError: someOtherVar is not defined',
-                'Was unable to take screenshots because the screenshot directory is not specified. ' +
-                'To specify it, use the "-s" or "--screenshots" command line option or the ' +
-                '"screenshots" method of the test runner in case you are using API.'
-            ]
+                'Was unable to take a screenshot due to an error.\n\nReferenceError: someOtherVar is not defined'
+            ],
+            {
+                failedCount:  2,
+                passedCount:  5,
+                skippedCount: 0
+            }
         ]
     }
 ];
