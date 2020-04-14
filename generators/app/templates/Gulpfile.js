@@ -4,7 +4,6 @@ var eslint  = require('gulp-eslint');
 var babel   = require('gulp-babel');
 var mocha   = require('gulp-mocha');
 var del     = require('del');
-const createReport = require('./test/utils/create-report');
 
 async function clean () {
     await del('lib');
@@ -40,6 +39,8 @@ function test () {
 }
 
 async function preview () {
+    const createReport = require('./test/utils/create-report');
+
     const reportWithColors = await createReport(true);
     const reportWithoutColors = await createReport(false);
 

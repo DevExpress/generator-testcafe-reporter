@@ -19,23 +19,23 @@ module.exports = function () {
             };
         },
         <% } %>
-        reportTaskStart (/* startTime, userAgents, testCount */) {
+        async reportTaskStart (/* startTime, userAgents, testCount */) {
             throw new Error('Not implemented');
         },
 
-        reportFixtureStart (/* name, path */) {
+        async reportFixtureStart (/* name, path */) {
             throw new Error('Not implemented');
         },
 
-        reportTestStart (/* name, testMeta */) {
+        async reportTestStart (/* name, testMeta */) {
             // NOTE: This method is optional.
         },
 
-        reportTestDone (/* name, testRunInfo */) {
+        async reportTestDone (/* name, testRunInfo */) {
             throw new Error('Not implemented');
         },
 
-        reportTaskDone (/* endTime, passed, warnings */) {
+        async reportTaskDone (/* endTime, passed, warnings */) {
             throw new Error('Not implemented');
         }
     };
