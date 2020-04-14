@@ -1,11 +1,13 @@
+const fs    = require('fs');
 var gulp    = require('gulp');
 var eslint  = require('gulp-eslint');
 var babel   = require('gulp-babel');
 var mocha   = require('gulp-mocha');
 var del     = require('del');
+const createReport = require('./test/utils/create-report');
 
-function clean (cb) {
-    del('lib', cb);
+async function clean () {
+    await del('lib');
 }
 
 function lint () {
@@ -37,19 +39,14 @@ function test () {
         }));
 }
 
-function preview () {
-    var buildReporterPlugin = require('testcafe').embeddingUtils.buildReporterPlugin;
-    var pluginFactory       = require('./lib');
-    var reporterTestCalls   = require('./test/utils/reporter-test-calls');
-    var plugin              = buildReporterPlugin(pluginFactory);
+async function preview () {
+    const reportWithColors = await createReport(true);
+    const reportWithoutColors = await createReport(false);
 
-    console.log();
+    fs.writeFileSync('report-with-colors.json', JSON.stringify(reportWithColors));
+    fs.writeFileSync('report-without-colors', reportWithoutColors);
 
-    reporterTestCalls.forEach(function (call) {
-        plugin[call.method].apply(plugin, call.args);
-    });
-
-    process.exit(0);
+    console.log(reportWithColors);
 }
 
 exports.clean = clean;
