@@ -8,6 +8,9 @@ try {
     someFunc();
 }
 catch (err) {
-    module.exports = createCallsiteRecord(err);
-}
+    const prevStacktrace = err.stack.split('\n');
 
+    err.stack = `${prevStacktrace[0]}\n${prevStacktrace[1]}`;
+
+    module.exports = createCallsiteRecord({ forError: err });
+}
