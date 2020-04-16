@@ -25,14 +25,18 @@ function build () {
     return gulp
         .src('src/**/*.js')
         .pipe(babel({
-            'presets': ['@babel/env'],
-            'plugins': [
-                'add-module-exports',
-                ['@babel/plugin-transform-runtime',
+            'presets': [
+                [
+                    '@babel/env',
                     {
-                        'regenerator': true
+                        'targets': {
+                            'node': '10'
+                        }
                     }
                 ]
+            ],
+            'plugins': [
+                'add-module-exports'
             ]
         }))
         .pipe(gulp.dest('lib'));
