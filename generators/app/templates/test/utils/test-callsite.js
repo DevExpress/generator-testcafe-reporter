@@ -1,4 +1,5 @@
 const path = require('path');
+const findLastIndex = require('lodash.findlastindex');
 var createCallsiteRecord = require('callsite-record');
 
 function someFunc () {
@@ -11,7 +12,9 @@ try {
 catch (err) {
     const scriptName = path.basename(__filename);
 
-    err.stack = err.stack.split('\n').filter(stackFrame => stackFrame.includes(scriptName)).join('\n');
+    const frames = err.stack.split('\n');
+
+    err.stack = frames.slice(0, findLastIndex(frames, frame => frame.includes(scriptName)) + 1).join('\n');
 
     module.exports = createCallsiteRecord({ forError: err });
 }

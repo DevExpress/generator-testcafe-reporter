@@ -36,6 +36,7 @@
     "gulp-babel": "^8.0.0",
     "gulp-eslint": "^6.0.0",
     "gulp-mocha": "^7.0.2",
+    "lodash.findlastindex": "^4.6.0",
     "normalize-newline": "^3.0.0",
     "publish-please": "^5.5.1",
     "read-file-relative": "^1.2.0",
