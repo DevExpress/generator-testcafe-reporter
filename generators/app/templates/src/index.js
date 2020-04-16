@@ -1,4 +1,4 @@
-module.exports = function () {
+export default function () {
     return {
         noColors: true,
         <% if (errorDecorator) { %>
@@ -23,20 +23,20 @@ module.exports = function () {
             throw new Error('Not implemented');
         },
 
-        async reportFixtureStart (/* name, path */) {
+        async reportFixtureStart (/* name, path, meta */) {
             throw new Error('Not implemented');
         },
 
-        async reportTestStart (/* name, testMeta */) {
+        async reportTestStart (/* name, meta */) {
             // NOTE: This method is optional.
         },
 
-        async reportTestDone (/* name, testRunInfo */) {
+        async reportTestDone (/* name, testRunInfo, meta */) {
             throw new Error('Not implemented');
         },
 
-        async reportTaskDone (/* endTime, passed, warnings */) {
+        async reportTaskDone (/* endTime, passed, warnings, result */) {
             throw new Error('Not implemented');
         }
     };
-};
+}

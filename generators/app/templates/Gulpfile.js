@@ -24,7 +24,17 @@ function lint () {
 function build () {
     return gulp
         .src('src/**/*.js')
-        .pipe(babel())
+        .pipe(babel({
+            'presets': ['@babel/env'],
+            'plugins': [
+                'add-module-exports',
+                ['@babel/plugin-transform-runtime',
+                    {
+                        'regenerator': true
+                    }
+                ]
+            ]
+        }))
         .pipe(gulp.dest('lib'));
 }
 
