@@ -31,12 +31,6 @@ module.exports = class extends Generator {
                 filter:  function (url) {
                     return url && normalizeUrl(url);
                 }
-            },
-            {
-                name:    'errorDecorator',
-                message: 'Do you want to implement custom error decorator?',
-                type:    'confirm',
-                default: false
             }
         ];
 
@@ -53,8 +47,7 @@ module.exports = class extends Generator {
             email:          this.user.git.email(),
             website:        this.props.website,
             reporterName:   this.props.reporterName,
-            githubUsername: this.props.githubUsername,
-            errorDecorator: this.props.errorDecorator
+            githubUsername: this.props.githubUsername
         };
 
         var unescaped = {

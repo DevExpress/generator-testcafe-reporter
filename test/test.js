@@ -18,8 +18,7 @@ it('Should generate expected files', function () {
     helpers.mockPrompt(generator, {
         reporterName:   'test-reporter',
         githubUsername: 'test-user',
-        website:        'test.com',
-        errorDecorator: false
+        website:        'test.com'
     });
 
     return pify(generator.run.bind(generator), Promise)().then(function () {
@@ -43,8 +42,6 @@ it('Should generate expected files', function () {
             'test/utils/test-callsite.js'
         ]);
 
-        assert.noFileContent('src/index.js', 'createErrorDecorator');
-
         assert.fileContent('package.json', 'test-reporter');
         assert.fileContent('package.json', 'test-user');
         assert.fileContent('package.json', 'test.com');
@@ -52,18 +49,5 @@ it('Should generate expected files', function () {
         assert.fileContent('README.md', 'test-reporter');
         assert.fileContent('README.md', 'test-user');
         assert.fileContent('README.md', 'test.com');
-    });
-});
-
-it('Should generate decorator if related option is specified', function () {
-    helpers.mockPrompt(generator, {
-        reporterName:   'test-reporter',
-        githubUsername: 'test-user',
-        website:        'test.com',
-        errorDecorator: true
-    });
-
-    return pify(generator.run.bind(generator), Promise)().then(function () {
-        assert.fileContent('src/index.js', 'createErrorDecorator');
     });
 });
