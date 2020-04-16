@@ -1,3 +1,4 @@
+const path = require('path');
 var createCallsiteRecord = require('callsite-record');
 
 function someFunc () {
@@ -8,9 +9,9 @@ try {
     someFunc();
 }
 catch (err) {
-    const prevStacktrace = err.stack.split('\n');
+    const scriptName = path.basename(__filename);
 
-    err.stack = `${prevStacktrace[0]}\n${prevStacktrace[1]}`;
+    err.stack = err.stack.split('\n').filter(stackFrame => stackFrame.includes(scriptName)).join('\n');
 
     module.exports = createCallsiteRecord({ forError: err });
 }
