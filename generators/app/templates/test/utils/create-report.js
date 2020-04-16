@@ -13,7 +13,7 @@ module.exports = async function createReport (withColors) {
 
     var plugin = buildReporterPlugin(pluginFactory, outStream);
 
-    plugin.chalk.enabled = withColors;
+    plugin.chalk.enabled = !plugin.noColors && withColors;
 
     for (const call of reporterTestCalls)
         await plugin[call.method].apply(plugin, call.args);

@@ -35,9 +35,21 @@ module.exports = [
             'First test in first fixture',
             {
                 errs:           [],
+                warnings:       [],
                 durationMs:     74000,
-                unstable:       true,
-                screenshotPath: '/screenshots/1445437598847'
+                unstable:       false,
+                screenshotPath: '/screenshots/1445437598847',
+                screenshots:    [
+                    {
+                        screenshotPath:    '/screenshots/1445437598847',
+                        thumbnailPath:     '/screenshots/1445437598847/thumbnail',
+                        userAgent:         'Chrome 41.0.2227 / Mac OS X 10.10.1',
+                        quarantineAttempt: 0,
+                        takenOnFail:       false
+                    }
+                ],
+                quarantine: null,
+                skipped:    false
             }
         ]
     },
@@ -68,10 +80,28 @@ module.exports = [
                         }
                     }
                 ]),
-
+                warnings:       [],
                 durationMs:     74000,
                 unstable:       false,
-                screenshotPath: '/screenshots/1445437598847'
+                screenshotPath: '/screenshots/1445437598847',
+                screenshots:    [
+                    {
+                        screenshotPath:    '/screenshots/1445437598847',
+                        thumbnailPath:     '/screenshots/1445437598847/thumbnail',
+                        userAgent:         'Chrome 41.0.2227 / Mac OS X 10.10.1',
+                        quarantineAttempt: 0,
+                        takenOnFail:       true
+                    },
+                    {
+                        screenshotPath:    '/screenshots/1445437598847',
+                        thumbnailPath:     '/screenshots/1445437598847/thumbnail',
+                        userAgent:         'Firefox 47 / Mac OS X 10.10.1',
+                        quarantineAttempt: 0,
+                        takenOnFail:       true
+                    }
+                ],
+                quarantine: null,
+                skipped:    false
             }
         ]
     },
@@ -81,9 +111,13 @@ module.exports = [
             'Third test in first fixture',
             {
                 errs:           [],
+                warnings:       [],
                 durationMs:     74000,
                 unstable:       false,
-                screenshotPath: null
+                screenshotPath: null,
+                screenshots:    [],
+                quarantine:     null,
+                skipped:        false
             }
         ]
     },
@@ -100,9 +134,13 @@ module.exports = [
             'First test in second fixture',
             {
                 errs:           [],
+                warnings:       [],
                 durationMs:     74000,
                 unstable:       false,
-                screenshotPath: null
+                screenshotPath: null,
+                screenshots:    [],
+                quarantine:     null,
+                skipped:        false
             }
         ]
     },
@@ -112,9 +150,13 @@ module.exports = [
             'Second test in second fixture',
             {
                 errs:           [],
+                warnings:       [],
                 durationMs:     74000,
                 unstable:       false,
-                screenshotPath: null
+                screenshotPath: null,
+                screenshots:    [],
+                quarantine:     null,
+                skipped:        false
             }
         ]
     },
@@ -124,9 +166,12 @@ module.exports = [
             'Third test in second fixture',
             {
                 errs:           [],
+                warnings:       [],
                 durationMs:     0,
                 unstable:       false,
                 screenshotPath: null,
+                screenshots:    [],
+                quarantine:     null,
                 skipped:        false
             }
         ]
@@ -154,10 +199,21 @@ module.exports = [
                         }
                     }
                 ]),
-
-                durationMs:     74000,
-                unstable:       true,
-                screenshotPath: null
+                warnings:       [],
+                durationMs:     0,
+                unstable:       false,
+                screenshotPath: '/screenshots/1445437598847',
+                screenshots:    [
+                    {
+                        screenshotPath:    '/screenshots/1445437598847',
+                        thumbnailPath:     '/screenshots/1445437598847/thumbnail',
+                        userAgent:         'Firefox 47 / Mac OS X 10.10.1',
+                        quarantineAttempt: 0,
+                        takenOnFail:       false
+                    }
+                ],
+                quarantine: null,
+                skipped:    false
             }
         ]
     },
