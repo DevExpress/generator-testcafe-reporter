@@ -35,7 +35,7 @@ it('Should generate expected files', function () {
             'src/index.js',
             'test/.eslintrc',
             'test/test.js',
-            'test/data/report-with-colors.json',
+            'test/data/report-with-colors',
             'test/data/report-without-colors',
             'test/utils/create-report.js',
             'test/utils/reporter-test-calls.js',
