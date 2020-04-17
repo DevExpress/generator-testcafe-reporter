@@ -1,1 +1,86 @@
-TODO
+{ startTime: 1970-01-01T00:00:00.000Z,
+  userAgents:
+   [ 'Chrome 41.0.2227 / Mac OS X 10.10.1',
+     'Firefox 47 / Mac OS X 10.10.1' ],
+  testCount: 7 }
+{ name: 'First fixture' }
+{ name: 'First test in first fixture',
+  testRunInfo:
+   { errs: [],
+     warnings: [],
+     durationMs: 74000,
+     unstable: false,
+     screenshotPath: '/screenshots/1445437598847',
+     screenshots: [ [Object] ],
+     quarantine: null,
+     skipped: false } }
+{ name: 'Second test in first fixture',
+  testRunInfo:
+   { errs:
+      [ [TestRunErrorFormattableAdapter],
+        [TestRunErrorFormattableAdapter] ],
+     warnings: [],
+     durationMs: 74000,
+     unstable: false,
+     screenshotPath: '/screenshots/1445437598847',
+     screenshots: [ [Object], [Object] ],
+     quarantine: null,
+     skipped: false } }
+{ name: 'Third test in first fixture',
+  testRunInfo:
+   { errs: [],
+     warnings: [],
+     durationMs: 74000,
+     unstable: false,
+     screenshotPath: null,
+     screenshots: [],
+     quarantine: null,
+     skipped: false } }
+{ name: 'Second fixture' }
+{ name: 'First test in second fixture',
+  testRunInfo:
+   { errs: [],
+     warnings: [],
+     durationMs: 74000,
+     unstable: false,
+     screenshotPath: null,
+     screenshots: [],
+     quarantine: null,
+     skipped: false } }
+{ name: 'Second test in second fixture',
+  testRunInfo:
+   { errs: [],
+     warnings: [],
+     durationMs: 74000,
+     unstable: false,
+     screenshotPath: null,
+     screenshots: [],
+     quarantine: null,
+     skipped: false } }
+{ name: 'Third test in second fixture',
+  testRunInfo:
+   { errs: [],
+     warnings: [],
+     durationMs: 0,
+     unstable: false,
+     screenshotPath: null,
+     screenshots: [],
+     quarantine: null,
+     skipped: false } }
+{ name: 'Third fixture' }
+{ name: 'First test in third fixture',
+  testRunInfo:
+   { errs: [ [TestRunErrorFormattableAdapter] ],
+     warnings: [],
+     durationMs: 0,
+     unstable: false,
+     screenshotPath: '/screenshots/1445437598847',
+     screenshots: [ [Object] ],
+     quarantine: null,
+     skipped: false } }
+{ endTime: 1970-01-01T00:15:25.000Z,
+  passed: 4,
+  warnings:
+   [ 'Was unable to take a screenshot due to an error.\n\nReferenceError: someVar is not defined',
+     'Was unable to take a screenshot due to an error.\n\nReferenceError: someOtherVar is not defined' ],
+  result: { failedCount: 2, passedCount: 5, skippedCount: 0 } }

@@ -1,25 +1,23 @@
+const util = require('util');
+
 export default function () {
     return {
         noColors: true,
 
-        async reportTaskStart (/* startTime, userAgents, testCount */) {
-            throw new Error('Not implemented');
+        async reportTaskStart (startTime, userAgents, testCount) {
+            this.write(util.inspect({ startTime, userAgents, testCount })).newline();
         },
 
-        async reportFixtureStart (/* name, path, meta */) {
-            throw new Error('Not implemented');
+        async reportFixtureStart (name) {
+            this.write(util.inspect({ name })).newline();
         },
 
-        async reportTestStart (/* name, meta */) {
-            // NOTE: This method is optional.
+        async reportTestDone (name, testRunInfo) {
+            this.write(util.inspect({ name, testRunInfo })).newline();
         },
 
-        async reportTestDone (/* name, testRunInfo, meta */) {
-            throw new Error('Not implemented');
-        },
-
-        async reportTaskDone (/* endTime, passed, warnings, result */) {
-            throw new Error('Not implemented');
+        async reportTaskDone (endTime, passed, warnings, result) {
+            this.write(util.inspect({ endTime, passed, warnings, result })).newline();
         }
     };
 }
