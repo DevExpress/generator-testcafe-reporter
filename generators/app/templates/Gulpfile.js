@@ -21,7 +21,7 @@ function lint () {
         .pipe(eslint.failAfterError());
 }
 
-function build () {
+function transpile () {
     return gulp
         .src('src/**/*.js')
         .pipe(babel({
@@ -52,20 +52,41 @@ function test () {
         }));
 }
 
-async function preview () {
+async function generateReport ({ withColors = false, toFile = false } = {}) {
     const createReport = require('./test/utils/create-report');
+    const report = await createReport(withColors);
 
-    const reportWithColors = await createReport(true);
-    const reportWithoutColors = await createReport(false);
-
-    fs.writeFileSync('report-with-colors.json', JSON.stringify(reportWithColors));
-    fs.writeFileSync('report-without-colors', reportWithoutColors);
-
-    console.log(reportWithColors);
+    if (toFile)
+        fs.writeFileSync(`test/data/report-${withColors ? 'with' : 'without'}-colors`, report);
+    else
+        console.log(report);
 }
+
+async function previewNoColors () {
+    await generateReport({ withColors: false });
+}
+
+async function previewColors () {
+    await generateReport({ withColors: true });
+}
+
+async function generateTestDataNoColors () {
+    await generateReport({ withColors: false, toFile: true });
+}
+
+async function generateTestDataColors () {
+    await generateReport({ withColors: true, toFile: true });
+}
+
+const build = gulp.series(clean, lint, transpile);
 
 exports.clean = clean;
 exports.lint = lint;
-exports.test = gulp.series(clean, lint, build, test);
-exports.build = gulp.series(clean, lint, build);
-exports.preview = gulp.series(clean, lint, build, preview);
+exports.build = build;
+exports.test = gulp.series(build, test);
+exports.previewColors = gulp.series(build, previewColors);
+exports.previewNoColors = gulp.series(build, previewNoColors);
+exports.preview = gulp.series(build, previewNoColors, previewColors);
+exports.generateTestDataNoColors = gulp.series(build, generateTestDataNoColors);
+exports.generateTestDataColors = gulp.series(build, generateTestDataColors);
+exports.generateTestData = gulp.series(build, gulp.parallel(generateTestDataNoColors, generateTestDataColors));
