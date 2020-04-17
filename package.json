@@ -35,7 +35,6 @@
     "gulp-eslint": "^6.0.0",
     "gulp-mocha": "^7.0.2",
     "pify": "^5.0.0",
-    "pinkie-promise": "^2.0.1",
     "publish-please": "^5.5.1",
     "yeoman-assert": "^3.1.1",
     "yeoman-test": "^2.4.1"

@@ -2,26 +2,40 @@
 var path    = require('path');
 var helpers = require('yeoman-test');
 var assert  = require('yeoman-assert');
-var Promise = require('pinkie-promise');
 var pify    = require('pify');
+const runCmd = require('./util');
 
-var generator = null;
+describe('Testcafe reporter generator', async function () {
+    const TEMP_DIR = path.join(__dirname, 'temp');
 
-beforeEach(function () {
-    return pify(helpers.testDirectory, Promise)(path.join(__dirname, 'temp'))
-        .then(function () {
-            generator = helpers.createGenerator('testcafe-reporter:app', ['../../generators/app'], null, { skipInstall: true });
-        });
-});
+    let generator;
 
-it('Should generate expected files', function () {
-    helpers.mockPrompt(generator, {
-        reporterName:   'test-reporter',
-        githubUsername: 'test-user',
-        website:        'test.com'
+    before(async function () {
+        await pify(helpers.testDirectory)(TEMP_DIR);
+
+        generator = helpers.createGenerator(
+            'testcafe-reporter:app',
+            ['../../generators/app'],
+            null,
+            {
+                skipInstall: false
+            }
+        );
     });
 
-    return pify(generator.run.bind(generator), Promise)().then(function () {
+    after(async function () {
+        await pify(helpers.testDirectory)(TEMP_DIR);
+    });
+
+    it('Should generate expected files', async function () {
+        helpers.mockPrompt(generator, {
+            reporterName:   'test-reporter',
+            githubUsername: 'test-user',
+            website:        'test.com'
+        });
+
+        await pify(generator.run.bind(generator))();
+
         assert.file([
             '.editorconfig',
             '.eslintrc',
@@ -49,5 +63,10 @@ it('Should generate expected files', function () {
         assert.fileContent('README.md', 'test-reporter');
         assert.fileContent('README.md', 'test-user');
         assert.fileContent('README.md', 'test.com');
+    });
+
+    it('Should generate working properly reporter', async function () {
+        await runCmd('gulp generateTestData');
+        await runCmd('gulp test');
     });
 });
