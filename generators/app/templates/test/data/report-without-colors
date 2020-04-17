@@ -3,7 +3,7 @@
    [ 'Chrome 41.0.2227 / Mac OS X 10.10.1',
      'Firefox 47 / Mac OS X 10.10.1' ],
   testCount: 7 }
-{ name: 'First fixture' }
+{ name: 'First fixture', path: './fixture1.js', meta: undefined }
 { name: 'First test in first fixture',
   testRunInfo:
    { errs: [],
@@ -13,7 +13,8 @@
      screenshotPath: '/screenshots/1445437598847',
      screenshots: [ [Object] ],
      quarantine: null,
-     skipped: false } }
+     skipped: false },
+  meta: undefined }
 { name: 'Second test in first fixture',
   testRunInfo:
    { errs:
@@ -25,7 +26,8 @@
      screenshotPath: '/screenshots/1445437598847',
      screenshots: [ [Object], [Object] ],
      quarantine: null,
-     skipped: false } }
+     skipped: false },
+  meta: undefined }
 { name: 'Third test in first fixture',
   testRunInfo:
    { errs: [],
@@ -35,8 +37,11 @@
      screenshotPath: null,
      screenshots: [],
      quarantine: null,
-     skipped: false } }
-{ name: 'Second fixture' }
+     skipped: false },
+  meta: undefined }
+{ name: 'Second fixture',
+  path: './fixture2.js',
+  meta: undefined }
 { name: 'First test in second fixture',
   testRunInfo:
    { errs: [],
@@ -46,7 +51,8 @@
      screenshotPath: null,
      screenshots: [],
      quarantine: null,
-     skipped: false } }
+     skipped: false },
+  meta: undefined }
 { name: 'Second test in second fixture',
   testRunInfo:
    { errs: [],
@@ -56,7 +62,8 @@
      screenshotPath: null,
      screenshots: [],
      quarantine: null,
-     skipped: false } }
+     skipped: false },
+  meta: undefined }
 { name: 'Third test in second fixture',
   testRunInfo:
    { errs: [],
@@ -66,8 +73,9 @@
      screenshotPath: null,
      screenshots: [],
      quarantine: null,
-     skipped: false } }
-{ name: 'Third fixture' }
+     skipped: false },
+  meta: undefined }
+{ name: 'Third fixture', path: './fixture3.js', meta: undefined }
 { name: 'First test in third fixture',
   testRunInfo:
    { errs: [ [TestRunErrorFormattableAdapter] ],
@@ -77,7 +85,8 @@
      screenshotPath: '/screenshots/1445437598847',
      screenshots: [ [Object] ],
      quarantine: null,
-     skipped: false } }
+     skipped: false },
+  meta: undefined }
 { endTime: 1970-01-01T00:15:25.000Z,
   passed: 4,
   warnings:
