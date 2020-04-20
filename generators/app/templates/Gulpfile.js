@@ -59,7 +59,7 @@ async function generateReport ({ withColors = false, toFile = false } = {}) {
     if (toFile)
         fs.writeFileSync(`test/data/report-${withColors ? 'with' : 'without'}-colors`, report);
     else
-        console.log(report);
+        process.stdout.write(report + '\n');
 }
 
 async function previewNoColors () {
