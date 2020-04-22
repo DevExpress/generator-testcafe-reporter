@@ -1,7 +1,7 @@
 'use strict';
-var Generator    = require('yeoman-generator');
-var slugify      = require('underscore.string').slugify;
-var normalizeUrl = require('normalize-url');
+const Generator    = require('yeoman-generator');
+const slugify      = require('underscore.string').slugify;
+const normalizeUrl = require('normalize-url');
 
 function filterProjectName (name) {
     return slugify(name.replace(/^testcafe(-|\s)reporter(-|\s)/i, ''));
@@ -9,7 +9,7 @@ function filterProjectName (name) {
 
 module.exports = class extends Generator {
     prompting () {
-        var prompts = [
+        const prompts = [
             {
                 name:    'reporterName',
                 message: 'How do you want to name your reporter?',
@@ -42,7 +42,7 @@ module.exports = class extends Generator {
     }
 
     writing () {
-        var tmplProps = {
+        const tmplProps = {
             author:         this.user.git.name(),
             email:          this.user.git.email(),
             website:        this.props.website,
@@ -50,7 +50,7 @@ module.exports = class extends Generator {
             githubUsername: this.props.githubUsername
         };
 
-        var unescaped = {
+        const unescaped = {
             '_.editorconfig':  '.editorconfig',
             '_.eslintrc':      '.eslintrc',
             '_.gitignore':     '.gitignore',

@@ -1,9 +1,9 @@
-var buildReporterPlugin = require('testcafe').embeddingUtils.buildReporterPlugin;
-var pluginFactory       = require('../../lib');
-var reporterTestCalls   = require('./reporter-test-calls');
+const buildReporterPlugin = require('testcafe').embeddingUtils.buildReporterPlugin;
+const pluginFactory       = require('../../lib');
+const reporterTestCalls   = require('./reporter-test-calls');
 
 module.exports = async function createReport (withColors) {
-    var outStream = {
+    const outStream = {
         data: '',
 
         write: function (text) {
@@ -11,7 +11,7 @@ module.exports = async function createReport (withColors) {
         }
     };
 
-    var plugin = buildReporterPlugin(pluginFactory, outStream);
+    const plugin = buildReporterPlugin(pluginFactory, outStream);
 
     plugin.chalk.enabled = !plugin.noColors && withColors;
 

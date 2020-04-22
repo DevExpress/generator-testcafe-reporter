@@ -1,6 +1,6 @@
 const path = require('path');
 const findLastIndex = require('lodash.findlastindex');
-var createCallsiteRecord = require('callsite-record');
+const createCallsiteRecord = require('callsite-record');
 
 function someFunc () {
     throw new Error('Hey ya!');

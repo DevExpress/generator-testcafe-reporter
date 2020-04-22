@@ -1,9 +1,9 @@
-const fs    = require('fs');
-var gulp    = require('gulp');
-var eslint  = require('gulp-eslint');
-var babel   = require('gulp-babel');
-var mocha   = require('gulp-mocha');
-var del     = require('del');
+const fs     = require('fs');
+const gulp   = require('gulp');
+const eslint = require('gulp-eslint');
+const babel  = require('gulp-babel');
+const mocha  = require('gulp-mocha');
+const del    = require('del');
 
 async function clean () {
     await del('lib');
