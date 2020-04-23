@@ -1,7 +1,6 @@
 'use strict';
 
 const assert = require('yeoman-assert');
-const del    = require('del');
 
 const {
     createGenerator,
