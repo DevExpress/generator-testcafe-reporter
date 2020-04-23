@@ -69,4 +69,4 @@ function testExample () {
 exports.lint        = lint;
 exports.testContent = testContent;
 exports.testExample = gulp.series(createExampleReporter, testExample);
-exports.test        = gulp.series(lint, testContent, testExample);
+exports.test        = gulp.series(lint, testContent, exports.testExample);
