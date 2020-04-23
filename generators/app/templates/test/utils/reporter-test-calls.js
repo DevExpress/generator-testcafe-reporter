@@ -1,7 +1,7 @@
-var TestRunErrorFormattableAdapter = require('testcafe').embeddingUtils.TestRunErrorFormattableAdapter;
-var UncaughtErrorOnPage            = require('testcafe').embeddingUtils.testRunErrors.UncaughtErrorOnPage;
-var ActionElementNotFoundError     = require('testcafe').embeddingUtils.testRunErrors.ActionElementNotFoundError;
-var testCallsite                   = require('./test-callsite');
+const TestRunErrorFormattableAdapter = require('testcafe').embeddingUtils.TestRunErrorFormattableAdapter;
+const UncaughtErrorOnPage            = require('testcafe').embeddingUtils.testRunErrors.UncaughtErrorOnPage;
+const ActionElementNotFoundError     = require('testcafe').embeddingUtils.testRunErrors.ActionElementNotFoundError;
+const testCallsite                   = require('./test-callsite');
 
 
 function makeErrors (errDescrs) {
@@ -35,9 +35,21 @@ module.exports = [
             'First test in first fixture',
             {
                 errs:           [],
+                warnings:       [],
                 durationMs:     74000,
-                unstable:       true,
-                screenshotPath: '/screenshots/1445437598847'
+                unstable:       false,
+                screenshotPath: '/screenshots/1445437598847',
+                screenshots:    [
+                    {
+                        screenshotPath:    '/screenshots/1445437598847',
+                        thumbnailPath:     '/screenshots/1445437598847/thumbnail',
+                        userAgent:         'Chrome 41.0.2227 / Mac OS X 10.10.1',
+                        quarantineAttempt: 0,
+                        takenOnFail:       false
+                    }
+                ],
+                quarantine: null,
+                skipped:    false
             }
         ]
     },
@@ -55,7 +67,7 @@ module.exports = [
                             userAgent:      'Chrome 41.0.2227 / Mac OS X 10.10.1',
                             screenshotPath: '/screenshots/1445437598847/errors',
                             callsite:       testCallsite,
-                            testRunState:   'inTest'
+                            testRunPhase:   'inTest'
                         }
                     },
                     {
@@ -64,14 +76,32 @@ module.exports = [
                         metaInfo: {
                             userAgent:    'Firefox 47 / Mac OS X 10.10.1',
                             callsite:     testCallsite,
-                            testRunState: 'inTest'
+                            testRunPhase: 'inTest'
                         }
                     }
                 ]),
-
+                warnings:       [],
                 durationMs:     74000,
                 unstable:       false,
-                screenshotPath: '/screenshots/1445437598847'
+                screenshotPath: '/screenshots/1445437598847',
+                screenshots:    [
+                    {
+                        screenshotPath:    '/screenshots/1445437598847',
+                        thumbnailPath:     '/screenshots/1445437598847/thumbnail',
+                        userAgent:         'Chrome 41.0.2227 / Mac OS X 10.10.1',
+                        quarantineAttempt: 0,
+                        takenOnFail:       true
+                    },
+                    {
+                        screenshotPath:    '/screenshots/1445437598847',
+                        thumbnailPath:     '/screenshots/1445437598847/thumbnail',
+                        userAgent:         'Firefox 47 / Mac OS X 10.10.1',
+                        quarantineAttempt: 0,
+                        takenOnFail:       true
+                    }
+                ],
+                quarantine: null,
+                skipped:    false
             }
         ]
     },
@@ -81,9 +111,13 @@ module.exports = [
             'Third test in first fixture',
             {
                 errs:           [],
+                warnings:       [],
                 durationMs:     74000,
                 unstable:       false,
-                screenshotPath: null
+                screenshotPath: null,
+                screenshots:    [],
+                quarantine:     null,
+                skipped:        false
             }
         ]
     },
@@ -100,9 +134,13 @@ module.exports = [
             'First test in second fixture',
             {
                 errs:           [],
+                warnings:       [],
                 durationMs:     74000,
                 unstable:       false,
-                screenshotPath: null
+                screenshotPath: null,
+                screenshots:    [],
+                quarantine:     null,
+                skipped:        false
             }
         ]
     },
@@ -112,9 +150,13 @@ module.exports = [
             'Second test in second fixture',
             {
                 errs:           [],
+                warnings:       [],
                 durationMs:     74000,
                 unstable:       false,
-                screenshotPath: null
+                screenshotPath: null,
+                screenshots:    [],
+                quarantine:     null,
+                skipped:        false
             }
         ]
     },
@@ -124,9 +166,12 @@ module.exports = [
             'Third test in second fixture',
             {
                 errs:           [],
+                warnings:       [],
                 durationMs:     0,
                 unstable:       false,
                 screenshotPath: null,
+                screenshots:    [],
+                quarantine:     null,
                 skipped:        false
             }
         ]
@@ -150,14 +195,25 @@ module.exports = [
                         metaInfo: {
                             userAgent:    'Firefox 47 / Mac OS X 10.10.1',
                             callsite:     testCallsite,
-                            testRunState: 'inBeforeEach'
+                            testRunPhase: 'inFixtureBeforeEachHook'
                         }
                     }
                 ]),
-
-                durationMs:     74000,
-                unstable:       true,
-                screenshotPath: null
+                warnings:       [],
+                durationMs:     0,
+                unstable:       false,
+                screenshotPath: '/screenshots/1445437598847',
+                screenshots:    [
+                    {
+                        screenshotPath:    '/screenshots/1445437598847',
+                        thumbnailPath:     '/screenshots/1445437598847/thumbnail',
+                        userAgent:         'Firefox 47 / Mac OS X 10.10.1',
+                        quarantineAttempt: 0,
+                        takenOnFail:       false
+                    }
+                ],
+                quarantine: null,
+                skipped:    false
             }
         ]
     },
@@ -168,11 +224,13 @@ module.exports = [
             4,
             [
                 'Was unable to take a screenshot due to an error.\n\nReferenceError: someVar is not defined',
-                'Was unable to take a screenshot due to an error.\n\nReferenceError: someOtherVar is not defined',
-                'Was unable to take screenshots because the screenshot directory is not specified. ' +
-                'To specify it, use the "-s" or "--screenshots" command line option or the ' +
-                '"screenshots" method of the test runner in case you are using API.'
-            ]
+                'Was unable to take a screenshot due to an error.\n\nReferenceError: someOtherVar is not defined'
+            ],
+            {
+                failedCount:  2,
+                passedCount:  5,
+                skippedCount: 0
+            }
         ]
     }
 ];

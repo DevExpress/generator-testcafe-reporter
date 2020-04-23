@@ -26,18 +26,18 @@
   },
   "license": "MIT",
   "dependencies": {
-    "normalize-url": "^1.4.0",
-    "underscore.string": "^3.2.2",
-    "yeoman-generator": "^3.2.0"
+    "normalize-url": "^5.0.0",
+    "underscore.string": "^3.3.5",
+    "yeoman-generator": "^4.8.2"
   },
   "devDependencies": {
-    "gulp": "^4.0.0",
-    "gulp-eslint": "^5.0.0",
-    "gulp-mocha": "^6.0.0",
-    "pify": "^2.3.0",
-    "pinkie-promise": "^2.0.0",
-    "publish-please": "^5.4.3",
-    "yeoman-assert": "^2.1.0",
-    "yeoman-test": "^1.9.1"
+    "del": "^5.1.0",
+    "gulp": "^4.0.2",
+    "gulp-eslint": "^6.0.0",
+    "gulp-mocha": "^7.0.2",
+    "pify": "^5.0.0",
+    "publish-please": "^5.5.1",
+    "yeoman-assert": "^3.1.1",
+    "yeoman-test": "^2.4.1"
   }
 }

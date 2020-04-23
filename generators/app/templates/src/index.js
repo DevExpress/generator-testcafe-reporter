@@ -1,42 +1,33 @@
-module.exports = function () {
+const util = require('util');
+
+export default function () {
     return {
         noColors: true,
-        <% if (errorDecorator) { %>
-        createErrorDecorator () {
-            return {
-                'span category':       () => '',
-                'span step-name':      str => `"${str}"`,
-                'span user-agent':     str => this.chalk.gray(str),
-                'div screenshot-info': str => str,
-                'a screenshot-path':   str => this.chalk.underline(str),
-                'code':                str => this.chalk.yellow(str),
-                'code step-source':    str => this.chalk.magenta(this.indentString(str, 4)),
-                'span code-line':      str => `${str}\n`,
-                'span last-code-line': str => str,
-                'code api':            str => this.chalk.yellow(str),
-                'strong':              str => this.chalk.cyan(str),
-                'a':                   str => this.chalk.yellow(`"${str}"`)
-            };
-        },
-        <% } %>
-        reportTaskStart (/* startTime, userAgents, testCount */) {
-            throw new Error('Not implemented');
+
+        async reportTaskStart (startTime, userAgents, testCount) {
+            // NOTE: Replace the next line with your code
+            this.write(util.inspect({ startTime, userAgents, testCount })).newline();
         },
 
-        reportFixtureStart (/* name, path */) {
-            throw new Error('Not implemented');
+        async reportFixtureStart (name, path, meta) {
+            // NOTE: Replace the next line with your code
+            this.write(util.inspect({ name, path, meta })).newline();
         },
 
-        reportTestStart (/* name, testMeta */) {
+        async reportTestStart (name, meta) {
             // NOTE: This method is optional.
+            // NOTE: Replace the next line with your code
+            this.write(util.inspect({ name, meta })).newline();
         },
 
-        reportTestDone (/* name, testRunInfo */) {
-            throw new Error('Not implemented');
+        async reportTestDone (name, testRunInfo, meta) {
+            // NOTE: Replace the next line with your code
+            this.write(util.inspect({ name, testRunInfo, meta })).newline();
         },
 
-        reportTaskDone (/* endTime, passed, warnings */) {
-            throw new Error('Not implemented');
+        async reportTaskDone (endTime, passed, warnings, result) {
+            // NOTE: Replace the next line with your code
+            this.write(util.inspect({ endTime, passed, warnings, result })).newline();
         }
     };
-};
+}

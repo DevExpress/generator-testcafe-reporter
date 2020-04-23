@@ -1,8 +1,10 @@
 'use strict';
 
-var gulp = require('gulp');
-var eslint = require('gulp-eslint');
-var mocha = require('gulp-mocha');
+const { spawn } = require('child_process');
+const gulp      = require('gulp');
+const eslint    = require('gulp-eslint');
+const mocha     = require('gulp-mocha');
+
 
 function lint () {
     return gulp
@@ -16,7 +18,7 @@ function lint () {
         .pipe(eslint.failAfterError());
 }
 
-function test () {
+function testContent () {
     return gulp
         .src('test/test.js')
         .pipe(mocha({
@@ -26,5 +28,45 @@ function test () {
         }));
 }
 
-exports.lint = lint;
-exports.test = gulp.series(lint, test);
+function exitDomains () {
+    const domains = [];
+
+    while (process.domain) {
+        domains.push(process.domain);
+
+        process.domain.exit();
+    }
+
+    return domains;
+}
+
+function enterDomains (domains) {
+    let domain = domains.pop();
+
+    while (domain) {
+        domain.enter();
+
+        domain = domains.pop();
+    }
+}
+
+async function createExampleReporter () {
+    // HACK: We have to exit from all Gulp's error domains to avoid conflicts
+    // with error handling inside yeoman-test helpers.
+    const domains = exitDomains();
+
+    const { createReporter } = require('./test/util');
+
+    await createReporter();
+
+    enterDomains(domains);
+}
+
+function testExample () {
+    return spawn('npx gulp generateTestData && npx gulp test', { stdio: 'inherit', shell: true });
+}
+
+exports.lint        = lint;
+exports.testContent = testContent;
+exports.testExample = gulp.series(createExampleReporter, testExample);
+exports.test        = gulp.series(lint, testContent, exports.testExample);
