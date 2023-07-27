@@ -66,8 +66,4 @@ module.exports = class extends Generator {
             this.fs.move(this.destinationPath(escaped), this.destinationPath(unescaped[escaped]));
         });
     }
-
-    install () {
-        this.installDependencies({ bower: false });
-    }
 };
