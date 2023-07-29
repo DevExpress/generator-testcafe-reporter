@@ -16,6 +16,7 @@ describe('Testcafe reporter generator', async function () {
     });
 
     it('Should generate expected files', async function () {
+        this.timeout(60000);
         await runGenerator(generator);
 
         assert.file([

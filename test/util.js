@@ -29,7 +29,7 @@ async function runGenerator (generator) {
         website:        'test.com'
     });
 
-    await promisify((...args) => generator.run(...args))();
+    await generator.run();
 }
 
 async function createReporter () {
