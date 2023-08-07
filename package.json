@@ -38,6 +38,7 @@
     "pify": "^5.0.0",
     "publish-please": "^5.5.1",
     "yeoman-assert": "^3.1.1",
+    "yeoman-environment": "^3.19.3",
     "yeoman-test": "^5.1.0"
   }
 }
