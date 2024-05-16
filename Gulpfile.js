@@ -3,7 +3,7 @@
 const { spawn } = require('child_process');
 const gulp      = require('gulp');
 const eslint    = require('gulp-eslint');
-const mocha     = require('gulp-mocha');
+const mocha     = require('gulp-mocha-simple');
 
 
 function lint () {
