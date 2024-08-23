@@ -33,7 +33,7 @@
   "devDependencies": {
     "@testcafe/publish-please": "^5.6.0",
     "del": "^5.1.0",
-    "gulp": "^4.0.2",
+    "gulp": "^5.0.0",
     "gulp-eslint": "^6.0.0",
     "gulp-mocha-simple": "^2.0.0",
     "pify": "^5.0.0",
