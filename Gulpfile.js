@@ -63,7 +63,7 @@ async function createExampleReporter () {
 }
 
 function testExample () {
-    return spawn('npx gulp generateTestData && npx gulp test', { stdio: 'inherit', shell: true });
+    return spawn('npx --no-install gulp generateTestData && npx --no-install gulp test', { stdio: 'inherit', shell: true });
 }
 
 exports.lint        = lint;
