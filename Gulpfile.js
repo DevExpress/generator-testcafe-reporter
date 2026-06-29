@@ -1,6 +1,7 @@
 'use strict';
 
 const { spawn } = require('child_process');
+const path      = require('path');
 const gulp      = require('gulp');
 const eslint    = require('gulp-eslint');
 const mocha     = require('gulp-mocha-simple');
@@ -63,7 +64,11 @@ async function createExampleReporter () {
 }
 
 function testExample () {
-    return spawn('npx --no-install gulp generateTestData && npx --no-install gulp test', { stdio: 'inherit', shell: true });
+    return spawn('npm install --legacy-peer-deps && npx --no-install gulp generateTestData && npx --no-install gulp test', {
+        cwd:   path.join(__dirname, 'test/temp'),
+        stdio: 'inherit',
+        shell: true
+    });
 }
 
 exports.lint        = lint;

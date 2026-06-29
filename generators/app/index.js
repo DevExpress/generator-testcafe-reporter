@@ -1,5 +1,6 @@
 'use strict';
-const Generator    = require('yeoman-generator');
+const GeneratorPkg = require('yeoman-generator');
+const Generator    = GeneratorPkg.default || GeneratorPkg;
 const slugify      = require('underscore.string').slugify;
 const normalizeUrl = require('normalize-url');
 
@@ -41,10 +42,10 @@ module.exports = class extends Generator {
             });
     }
 
-    writing () {
+    async writing () {
         const tmplProps = {
-            author:         this.user.git.name(),
-            email:          this.user.git.email(),
+            author:         await this.git.name(),
+            email:          await this.git.email(),
             website:        this.props.website,
             reporterName:   this.props.reporterName,
             githubUsername: this.props.githubUsername

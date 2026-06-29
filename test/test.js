@@ -12,7 +12,7 @@ describe('Testcafe reporter generator', async function () {
     let generator;
 
     before(async function () {
-        generator = await createGenerator({ skipInstall: true });
+        generator = createGenerator({ skipInstall: true });
     });
 
     it('Should generate expected files', async function () {
