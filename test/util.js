@@ -1,39 +1,32 @@
 'use strict';
 
 const path          = require('path');
-const { promisify } = require('util');
-const helpers       = require('yeoman-test');
+const helpersPkg    = require('yeoman-test');
+const helpers       = helpersPkg.default || helpersPkg;
 
 
 const GENERATOR_DIRECTORY = path.join(__dirname, 'temp');
+const GENERATOR_PATH      = path.resolve(__dirname, '../generators/app');
 
-async function createGeneratorDirectory () {
-    await promisify(helpers.testDirectory)(GENERATOR_DIRECTORY);
-}
-
-async function createGenerator (options = {}) {
-    await createGeneratorDirectory();
-
-    return helpers.createGenerator(
-        'testcafe-reporter:app',
-        ['../../generators/app'],
-        null,
-        options
-    );
+function createGenerator (options = {}) {
+    return helpers
+        .create(GENERATOR_PATH)
+        .inDir(GENERATOR_DIRECTORY)
+        .withOptions(options);
 }
 
 async function runGenerator (generator) {
-    helpers.mockPrompt(generator, {
-        reporterName:   'test-reporter',
-        githubUsername: 'test-user',
-        website:        'test.com'
-    });
-
-    await generator.run();
+    await generator
+        .withPrompts({
+            reporterName:   'test-reporter',
+            githubUsername: 'test-user',
+            website:        'test.com'
+        })
+        .run();
 }
 
 async function createReporter () {
-    const generator = await createGenerator();
+    const generator = createGenerator();
 
     await runGenerator(generator);
 }
