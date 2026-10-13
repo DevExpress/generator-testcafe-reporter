@@ -28,7 +28,7 @@
   "dependencies": {
     "normalize-url": "^5.0.0",
     "underscore.string": "^3.3.5",
-    "yeoman-generator": "^8.2.2"
+    "yeoman-generator": "^10.0.1"
   },
   "devDependencies": {
     "@testcafe/publish-please": "^5.6.0",
